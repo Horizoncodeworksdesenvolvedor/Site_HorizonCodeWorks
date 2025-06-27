@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorizonCodeWorks - Transformamos ideias em soluções digitais</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#servicos" class="nav-link">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projetos" class="nav-link">Projetos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contato" class="nav-link btn-contact">Contato</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Transformamos
+                        <span class="highlight">ideias</span> em soluções
+                        digitais
+                    </h1>
+                    <p class="hero-description">
+                        Desenvolvimento de sites, sistemas e aplicações web personalizadas para impulsionar o seu negócio.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('contato')">Solicitar orçamento</button>
+                        <button class="btn btn-outline" onclick="scrollToSection('servicos')">Nossos serviços</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-icon">
+                        <div class="icon-container">
+                            <img src="Img/Cartões de visita.png" alt="Horizon Codeworks Logo" class="custom-icon">
+                        </div>
+                    </div>
+                    
+                    <div class="star-orbit-container">
+                        <div class="star floating-element star-1"></div>
+                        <div class="star floating-element star-2"></div>
+                        <div class="star floating-element star-3"></div>
+                        <div class="star floating-element star-4"></div>
+                        <div class="star floating-element star-5"></div>
+                        <div class="star floating-element star-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-description">
+                    Oferecemos soluções completas para sua presença digital, desde o desenvolvimento até a manutenção.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desenvolvimento Web</h3>
+                    <p class="service-description">
+                        Sites responsivos, landing pages e portais corporativos com design moderno e experiência de usuário otimizada.
+                    </p>
+                    <a href="#" class="service-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12,5 19,12 12,19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16,18 22,12 16,6"></polyline>
+                            <polyline points="8,6 2,12 8,18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Sistemas Personalizados</h3>
+                    <p class="service-description">
+                        Desenvolvimento de sistemas sob medida para automatizar processos e aumentar a eficiência do seu negócio.
+                    </p>
+                    <a href="#" class="service-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12,5 19,12 12,19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Aplicações Mobile</h3>
+                    <p class="service-description">
+                        Desenvolvimento de aplicativos móveis nativos e híbridos para iOS e Android com interfaces intuitivas.
+                    </p>
+                    <a href="#" class="service-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12,5 19,12 12,19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">E-commerce</h3>
+                    <p class="service-description">
+                        Lojas virtuais completas com integração de pagamentos, gestão de estoque e experiência de compra otimizada.
+                    </p>
+                    <a href="#" class="service-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12,5 19,12 12,19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12,22s8-4 8-10V5l-8-3-8,3v7C4,18 12,22 12,22z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Segurança Digital</h3>
+                    <p class="service-description">
+                        Implementação de protocolos de segurança, auditorias e proteção contra vulnerabilidades em sistemas web.
+                    </p>
+                    <a href="#" class="service-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12,5 19,12 12,19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4,15a1.65,1.65,0,0,0,.33,1.82l.06.06a2,2,0,0,1,0,2.83,2,2,0,0,1-2.83,0l-.06-.06a1.65,1.65,0,0,0-1.82-.33,1.65,1.65,0,0,0-1,1.51V21a2,2,0,0,1-2,2,2,2,0,0,1-2-2v-.09A1.65,1.65,0,0,0,9,19.4a1.65,1.65,0,0,0-1.82.33l-.06.06a2,2,0,0,1-2.83,0,2,2,0,0,1,0-2.83l.06-.06a1.65,1.65,0,0,0,.33-1.82,1.65,1.65,0,0,0-1.51-1H3a2,2,0,0,1-2-2,2,2,0,0,1,2-2h.09A1.65,1.65,0,0,0,4.6,9a1.65,1.65,0,0,0-.33-1.82L4.21,7.11a2,2,0,0,1,0-2.83,2,2,0,0,1,2.83,0l.06.06a1.65,1.65,0,0,0,1.82.33H9a1.65,1.65,0,0,0,1-1.51V3a2,2,0,0,1,2-2,2,2,0,0,1,2,2v.09a1.65,1.65,0,0,0,1,1.51,1.65,1.65,0,0,0,1.82-.33l.06-.06a2,2,0,0,1,2.83,0,2,2,0,0,1,0,2.83l-.06.06a1.65,1.65,0,0,0-.33,1.82V9a1.65,1.65,0,0,0,1.51,1H21a2,2,0,0,1,2,2,2,2,0,0,1-2,2h-.09A1.65,1.65,0,0,0,19.4,15Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Consultoria Técnica</h3>
+                    <p class="service-description">
+                        Assessoria especializada em tecnologia para otimização de processos e implementação de soluções digitais.
+                    </p>
+                    <a href="#" class="service-link">
+                        Saiba mais
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12,5 19,12 12,19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projetos Recentes</h2>
+                <p class="section-description">
+                    Conheça alguns dos nossos trabalhos mais recentes e como ajudamos nossos clientes a alcançarem seus objetivos.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <!-- Projeto 1: E-commerce TechStore -->
+                <div class="project-card">
+                    <div class="project-video-container" data-video="">
+                        <img src="https://img.freepik.com/fotos-gratis/mostrando-grafico-de-sinalizacao-de-carrinho-de-compras-online_53876-133967.jpg?semt=ais_hybrid&w=740" alt="E-commerce TechStore" class="project-video-thumbnail">
+                        <div class="video-overlay">
+                            <div class="play-button" onclick="playVideo(this, '')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                        <video class="project-video" controls style="display: none;">
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">E-COMMERCE</div>
+                        <h3 class="project-title">Loja Virtual TechStore</h3>
+                        <div class="project-technologies">
+                            <span class="tech-tag react">React</span>
+                            <span class="tech-tag node">Node.js</span>
+                            <span class="tech-tag mongo">MongoDB</span>
+                            <span class="tech-tag stripe">Stripe</span>
+                        </div>
+                        <p class="project-description">
+                            Plataforma completa de e-commerce com sistema de pagamentos integrado, gestão de estoque em tempo real e painel administrativo avançado para controle total das vendas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projeto 2: Sistema Controle de Estoque -->
+                <div class="project-card">
+                    <div class="project-video-container" data-video="vds/Sistema_de_controle_de_Estoque.mp4">
+                        <img src="https://blog.jetbov.com/wp-content/uploads/2020/01/estoque-2.png" alt="Controle de Estoque" class="project-video-thumbnail">
+                        <div class="video-overlay">
+                            <div class="play-button" onclick="playVideo(this, 'vds/Sistema_de_controle_de_Estoque.mp4')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                        <video class="project-video" controls style="display: none;">
+                            <source src="vds/Sistema_de_controle_de_Estoque.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">SISTEMA</div>
+                        <h3 class="project-title">Controle de Estoque</h3>
+                        <div class="project-technologies">
+                            <span class="tech-tag laravel">Java</span>
+                            <span class="tech-tag mysql">MySQL</span>
+                        </div>
+                        <p class="project-description">
+                            Sistema de Cadastro de Estoque Básico para Pequenas Empresas que Necessitam de uma Administração Prática e Rápida para uma Visualização em tempo real dos dados salvos no BD.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projeto 3: Encrypted Guardian -->
+                <div class="project-card">
+                    <div class="project-video-container" data-video="vds/Sistema de criptografia ordenada.mp4">
+                        <img src="https://i.pinimg.com/736x/19/9e/34/199e34245edfa86c92a194a68d6701a6.jpg" alt="Controle de Estoque" class="project-video-thumbnail">
+                        <div class="video-overlay">
+                            <div class="play-button" onclick="playVideo(this, 'vds/Sistema de criptografia ordenada.mp4')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5,3 19,12 5,21"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                        <video class="project-video" controls style="display: none;">
+                            <source src="vds/Sistema de criptografia ordenada.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">Sistema</div>
+                        <h3 class="project-title">Encrypted Guardian</h3>
+                        <div class="project-technologies">
+                           <span class="tech-tag laravel">Java</span>
+                        </div>
+                        <p class="project-description">
+                            Uma ferramenta CLI que criptografa e descriptografa arquivos de texto (.txt), utilizando algoritmos como AES, César e Transposição. Além disso, ele mede o desempenho de cada método. Fundamentalmente, o sistema demonstra a implementação da criptografia para proteger dados em sistemas, assegurando a confidencialidade e integridade de informações sensíveis que transitam por esses arquivos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <button class="btn btn-outline">Ver todos os projetos</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre a HorizonCodeWorks</h2>
+                    <p class="about-description">
+                        A HorizonCodeworks é uma empresa fundada por três jovens estudantes de Ciência da Computação e Desenvolvimento de Sistemas, com foco em criar soluções tecnológicas sob medida.
+
+                        Especializada no desenvolvimento de websites, sistemas personalizados e plataformas digitais, a empresa atende lojas e empresas que buscam otimizar processos e modernizar suas operações.
+
+                        Com uma visão jovem e inovadora, a HorizonCodeworks se destaca por entregar projetos funcionais, intuitivos e alinhados às necessidades do cliente, contribuindo para sua transformação digital e crescimento.
+                    </p>
+                    <p class="about-description">
+                        Nossa missão é transformar ideias em soluções digitais que impulsionem o crescimento dos nossos clientes, através de tecnologias modernas e processos ágeis.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            <span>+100 Projetos criados</span>
+                        </div>
+                        <div class="feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            <span>+10 clientes satisfeitos</span>
+                        </div>
+                        <div class="feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            <span>Equipe Formada e Especializada</span>
+                        </div>
+                        <div class="feature">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            <span>Suporte contínuo</span>
+                        </div>
+                    </div>
+                <button class="btn btn-primary" onclick="scrollToSection('contato')">Fale conosco</button>
+                </div>
+                <div class="about-stats">
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">Anos de experiência</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Especialistas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfação</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Suporte</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em contato</h2>
+                <p class="section-description">
+                    Estamos prontos para transformar sua ideia em realidade. Entre em contato e vamos conversar sobre seu projeto.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <div id="form-container">
+                        <form id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="from_name">Nome</label>
+                                    <input type="text" id="from_name" name="from_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="from_email">Email</label>
+                                    <input type="email" id="from_email" name="from_email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Enviar mensagem</button>
+                        </form>
+                    </div>
+
+                    <div id="success-animation" class="success-animation hidden">
+                        <div class="success-content">
+                            <div class="company-logo-container">
+                                <div class="logo-background">
+                                    <div class="logo-icon">
+                                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26 12,2"></polygon>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="success-check">
+                                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20,6 9,17 4,12"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="success-text">
+                                <h3>Mensagem Enviada!</h3>
+                                <p>Obrigado pela sua preferência! Entraremos em contato em breve.</p>
+                            </div>
+                            
+                            <div class="success-actions">
+                                <button class="btn-action btn-primary" id="send-again-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23,4 23,10 17,10"></polyline>
+                                        <path d="M20.49,15a9,9,0,1,1-2.12-9.36L23,10"></path>
+                                    </svg>
+                                    Enviar Novamente
+                                </button>
+                                <button class="btn-action btn-outline" id="back-to-top-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                                        <polyline points="5,12 12,5 19,12"></polyline>
+                                    </svg>
+                                    Voltar ao Topo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Informações de contato</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Endereço</h4>
+                            <p>Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefone</h4>
+                            <p>(11) 3456-7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>horizoncodeworks@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12,6 12,12 16,14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Horário de atendimento</h4>
+                            <p>Segunda a Sexta: 9h às 18h</p>
+                        </div>
+                    </div>
+                    <div class="social-section">
+                        <h4>Siga-nos</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61577315566245&sk=about_details" class="social-link" aria-label="Acessar Facebook" target="_blank" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/horizoncodeworks/" class="social-link" aria-label="Acessar Instagram" target="_blank" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Acessar Likedin">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo">HorizonCodeWorks</span>
+                </div>
+                <p class="footer-text">&copy; 2024 HorizonCodeWorks. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+     <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "iZEWU7ZQzmux_pgIv",
+            });
+        })();
+    </script>    
+</body>
+</html>
