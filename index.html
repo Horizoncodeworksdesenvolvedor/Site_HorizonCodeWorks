@@ -10,6 +10,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Advertisement Modal -->
+    <div id="ad-modal" class="ad-modal">
+        <div class="ad-modal-content">
+            <div class="ad-header">
+                <span class="ad-label">Publicidade</span>
+                <button class="ad-close-btn" id="ad-close-btn" type="button" aria-label="Fechar anúncio" title="Fechar  anúncio">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="ad-content" id="ad-content">
+                <!-- Advertisement content will be dynamically loaded here -->
+            </div>
+            <div class="ad-footer">
+                <div class="ad-counter" id="ad-counter">
+                    <span id="ad-current">1</span> / <span id="ad-total">3</span>
+                </div>
+                <div class="ad-timer" id="ad-timer">
+                    <div class="timer-circle">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="#374151" stroke-width="2" fill="none"/>
+                            <circle cx="12" cy="12" r="10" stroke="#b58f46" stroke-width="2" fill="none" 
+                                    stroke-dasharray="62.83" stroke-dashoffset="62.83" 
+                                    transform="rotate(-90 12 12)" id="timer-progress"/>
+                        </svg>
+                        <span id="timer-text">5</span>
+                    </div>
+                </div>
+                <div class="ad-controls">
+                    <button class="ad-nav-btn" id="ad-prev-btn" type="button" aria-label="Anterior" title="Anterior">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="ad-nav-btn" id="ad-next-btn" type="button" aria-label="Próximo" title="Próximo">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,18 15,12 9,6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <ul class="nav-menu" id="nav-menu">
@@ -255,7 +301,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <video class="project-video" controls style="display: none;">
+                        <video class="project-video" controls>
                             <source src="vds/Sistema_de_controle_de_Estoque.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -283,7 +329,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <video class="project-video" controls style="display: none;">
+                        <video class="project-video" controls>
                             <source src="vds/Sistema de criptografia ordenada.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -325,7 +371,7 @@
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20,6 9,17 4,12"></polyline>
                             </svg>
-                            <span>+100 Projetos criados</span>
+                            <span>+10 Projetos criados</span>
                         </div>
                         <div class="feature">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -337,7 +383,7 @@
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="20,6 9,17 4,12"></polyline>
                             </svg>
-                            <span>Equipe Formada e Especializada</span>
+                            <span>Profissionais em formação, com soluções criativas e atualizadas</span>
                         </div>
                         <div class="feature">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -351,7 +397,7 @@
                 <div class="about-stats">
                     <div class="stats-grid">
                         <div class="stat">
-                            <div class="stat-number">6+</div>
+                            <div class="stat-number">3+</div>
                             <div class="stat-label">Anos de experiência</div>
                         </div>
                         <div class="stat">
@@ -536,8 +582,10 @@
         </div>
     </footer>
 
-     <script src="script.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Load advertisement configuration first -->
+    <script src="ads/config.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init({
