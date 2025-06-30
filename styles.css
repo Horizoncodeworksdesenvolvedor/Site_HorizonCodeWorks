@@ -1,13 +1,17 @@
+/* ===== RESET E CONFIGURAÇÕES GLOBAIS ===== */
+/* Remove margens e paddings padrão do navegador e define box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Configuração de scroll suave para toda a página */
 html {
     scroll-behavior: smooth;
 }
 
+/* Configurações base do body - fonte, cores e espaçamento */
 body {
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
@@ -15,17 +19,359 @@ body {
     background-color: #000;
 }
 
+/* Container principal - centraliza conteúdo e define largura máxima */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* Classe utilitária para esconder elementos */
 .hidden {
     display: none !important;
 }
 
-/* Navigation */
+/* ===== SISTEMA DE MODAL DE ANÚNCIOS ===== */
+/* Modal principal que cobre toda a tela */
+.ad-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Estado visível do modal */
+.ad-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container do conteúdo do anúncio */
+.ad-modal-content {
+    background: #111827;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 800px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(181, 143, 70, 0.2);
+    transform: scale(0.8) translateY(50px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+/* Animação de entrada do modal */
+.ad-modal.show .ad-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Cabeçalho do anúncio com label e botão fechar */
+.ad-header {
+    background: linear-gradient(135deg, #b58f46, #d4af37);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Label "Publicidade" */
+.ad-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Botão de fechar anúncio */
+.ad-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ad-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Área principal do conteúdo do anúncio */
+.ad-content {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Item individual do anúncio */
+.ad-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Estado ativo do item */
+.ad-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Animações de transição entre anúncios */
+.ad-item.next {
+    transform: translateX(100%) scale(1);
+}
+
+.ad-item.prev {
+    transform: translateX(-100%) scale(1);
+}
+
+/* Imagem do anúncio */
+.ad-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ad-image:hover {
+    transform: scale(1.05);
+}
+
+/* Vídeo do anúncio */
+.ad-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Controles do vídeo */
+.ad-video-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+
+/* Botão play/pause do vídeo */
+.video-play-btn {
+    background: #b58f46;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.video-play-btn:hover {
+    background: #d4af37;
+    transform: scale(1.1);
+}
+
+/* Tempo do vídeo */
+.video-time {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Barra de progresso do vídeo */
+.video-progress {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.video-progress-bar {
+    height: 100%;
+    background: #b58f46;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Placeholder para conteúdo indisponível */
+.ad-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    padding: 40px;
+    text-align: center;
+}
+
+.ad-placeholder svg {
+    margin-bottom: 16px;
+    color: #6b7280;
+}
+
+.ad-placeholder h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #d1d5db;
+}
+
+.ad-placeholder p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Rodapé do anúncio com controles */
+.ad-footer {
+    background: #1f2937;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Contador de anúncios (1/3) */
+.ad-counter {
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ad-counter #ad-current {
+    color: #b58f46;
+    font-weight: 600;
+}
+
+/* Timer circular com contagem regressiva */
+.ad-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timer-circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-circle svg {
+    transform: rotate(-90deg);
+}
+
+#timer-text {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 600;
+    color: #b58f46;
+}
+
+/* Controles de navegação (anterior/próximo) */
+.ad-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.ad-nav-btn {
+    background: rgba(181, 143, 70, 0.1);
+    border: 1px solid rgba(181, 143, 70, 0.3);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b58f46;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ad-nav-btn:hover {
+    background: #b58f46;
+    color: white;
+    transform: scale(1.1);
+}
+
+.ad-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ad-nav-btn:disabled:hover {
+    background: rgba(181, 143, 70, 0.1);
+    color: #b58f46;
+    transform: scale(1);
+}
+
+/* Animação de carregamento dos anúncios */
+.ad-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: #b58f46;
+}
+
+.ad-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(181, 143, 70, 0.2);
+    border-top: 3px solid #b58f46;
+    border-radius: 50%;
+    animation: adSpin 1s linear infinite;
+}
+
+@keyframes adSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== NAVEGAÇÃO PRINCIPAL ===== */
+/* Barra de navegação fixa no topo */
 .navbar {
     position: fixed;
     top: 0;
@@ -36,6 +382,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Container da navegação */
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -46,6 +393,7 @@ body {
     height: 70px;
 }
 
+/* Logo da navegação (não usado no HTML atual) */
 .nav-logo {
     display: flex;
     align-items: center;
@@ -63,6 +411,7 @@ body {
     font-weight: 700;
 }
 
+/* Menu de navegação */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -70,6 +419,7 @@ body {
     gap: 32px;
 }
 
+/* Links de navegação */
 .nav-link {
     text-decoration: none;
     color: #d1d5db;
@@ -81,6 +431,7 @@ body {
     color: #b58f46;
 }
 
+/* Botão especial de contato */
 .btn-contact {
     background: #b58f46;
     color: white !important;
@@ -95,6 +446,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* Menu hambúrguer para mobile */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -109,7 +461,8 @@ body {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* ===== SEÇÃO HERO (INÍCIO) ===== */
+/* Seção principal de apresentação */
 .hero {
     padding: 120px 0 80px;
     background: #000;
@@ -118,6 +471,7 @@ body {
     align-items: center;
 }
 
+/* Layout em grid do conteúdo hero */
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -125,6 +479,7 @@ body {
     align-items: center;
 }
 
+/* Título principal */
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
@@ -133,10 +488,12 @@ body {
     color: #f3f4f6;
 }
 
+/* Palavra destacada no título */
 .highlight {
     color: #b58f46;
 }
 
+/* Descrição do hero */
 .hero-description {
     font-size: 1.25rem;
     color: #d1d5db;
@@ -144,12 +501,14 @@ body {
     line-height: 1.6;
 }
 
+/* Container dos botões de ação */
 .hero-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
 }
 
+/* Estilos base para botões */
 .btn {
     padding: 14px 28px;
     border-radius: 8px;
@@ -164,6 +523,7 @@ body {
     gap: 8px;
 }
 
+/* Botão primário */
 .btn-primary {
     background: #b58f46;
     color: white;
@@ -176,6 +536,7 @@ body {
     box-shadow: 0 10px 25px rgba(181, 143, 70, 0.3);
 }
 
+/* Botão com contorno */
 .btn-outline {
     background: transparent;
     color: #b58f46;
@@ -187,6 +548,7 @@ body {
     color: #b58f46;
 }
 
+/* Área visual do hero com logo e animações */
 .hero-visual {
     position: relative;
     display: flex;
@@ -200,11 +562,13 @@ body {
     z-index: 5;
 }
 
+/* Container do ícone principal */
 .hero-icon {
     position: relative;
     z-index: 7;
 }
 
+/* Logo customizado */
 .hero-visual .hero-icon .icon-container .custom-icon {
      width: 700px; 
     height: 700px;
@@ -221,6 +585,7 @@ body {
   object-fit: contain;
 }
 
+/* Container do ícone */
 .icon-container {
     border-radius: 20%;
     width: 300px;
@@ -231,6 +596,7 @@ body {
     color: #6366f1;
 }
 
+/* Elementos flutuantes (estrelas) */
 .floating-element {
     position: absolute;
     opacity: 0.8;
@@ -247,6 +613,7 @@ body {
     z-index: 6;
 }
 
+/* Estrelas individuais com tamanhos e animações específicas */
 .star-1 {
     width: 60px;
     height: 60px;
@@ -324,6 +691,7 @@ body {
     transform-origin: 50% 50%;
 }
 
+/* Animações de órbita para cada estrela */
 @keyframes orbitCircle {
     0% {
         transform: translate(-50%, -50%) rotate(0deg) translateX(200px) rotate(0deg);
@@ -378,6 +746,7 @@ body {
     }
 }
 
+/* Animação de brilho das estrelas */
 @keyframes starGlow {
     0% {
         box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
@@ -389,16 +758,19 @@ body {
     }
 }
 
-/* Section Styles */
+/* ===== ESTILOS GERAIS DE SEÇÕES ===== */
+/* Espaçamento padrão das seções */
 section {
     padding: 80px 0;
 }
 
+/* Cabeçalho das seções */
 .section-header {
     text-align: center;
     margin-bottom: 60px;
 }
 
+/* Título das seções */
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -406,6 +778,7 @@ section {
     margin-bottom: 16px;
 }
 
+/* Descrição das seções */
 .section-description {
     font-size: 1.125rem;
     color: #d1d5db;
@@ -413,17 +786,20 @@ section {
     margin: 0 auto;
 }
 
-/* Services Section */
+/* ===== SEÇÃO DE SERVIÇOS ===== */
+/* Container da seção de serviços */
 .services {
     background: #000;
 }
 
+/* Grid dos serviços */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
 }
 
+/* Card individual de serviço */
 .service-card {
     background: #111827;
     padding: 32px;
@@ -438,6 +814,7 @@ section {
     box-shadow: 0 2px 15px rgba(181, 143, 70, 0.3);
 }
 
+/* Ícone do serviço */
 .service-icon {
     background: #b58f46;
     width: 60px;
@@ -450,6 +827,7 @@ section {
     color: white;
 }
 
+/* Título do serviço */
 .service-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -457,12 +835,14 @@ section {
     margin-bottom: 12px;
 }
 
+/* Descrição do serviço */
 .service-description {
     color: #d1d5db;
     margin-bottom: 20px;
     line-height: 1.6;
 }
 
+/* Link "Saiba mais" */
 .service-link {
     color: #b58f46;
     text-decoration: none;
@@ -477,11 +857,13 @@ section {
     color: white;
 }
 
-/* Projects Section - Nova estrutura com vídeos */
+/* ===== SEÇÃO DE PROJETOS ===== */
+/* Container da seção de projetos */
 .projects {
     background: #111827;
 }
 
+/* Grid dos projetos */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -489,6 +871,7 @@ section {
     margin-bottom: 50px;
 }
 
+/* Card individual de projeto */
 .project-card {
     background: #1f2937;
     border-radius: 20px;
@@ -502,7 +885,7 @@ section {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Video Container - Sistema aprimorado */
+/* Container do vídeo/imagem do projeto */
 .project-video-container {
     position: relative;
     width: 100%;
@@ -511,6 +894,7 @@ section {
     background: #000;
 }
 
+/* Thumbnail do projeto */
 .project-video-thumbnail {
     width: 100%;
     height: 100%;
@@ -523,6 +907,7 @@ section {
     transform: scale(1.05);
 }
 
+/* Overlay com botão de play */
 .video-overlay {
     position: absolute;
     top: 0;
@@ -542,6 +927,7 @@ section {
     opacity: 1;
 }
 
+/* Botão de play */
 .play-button {
     width: 70px;
     height: 70px;
@@ -566,7 +952,7 @@ section {
     margin-left: 3px; /* Ajuste para centralizar o ícone de play */
 }
 
-/* Estilo para o vídeo quando reproduzido */
+/* Vídeo quando reproduzido */
 .project-video {
     width: 100%;
     height: 100%;
@@ -607,11 +993,12 @@ section {
     transform: scale(1.1);
 }
 
-/* Project Info */
+/* Informações do projeto */
 .project-info {
     padding: 30px;
 }
 
+/* Tag de categoria do projeto */
 .project-tag {
     font-size: 0.75rem;
     font-weight: 600;
@@ -625,6 +1012,7 @@ section {
     border-radius: 20px;
 }
 
+/* Título do projeto */
 .project-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -632,7 +1020,7 @@ section {
     margin-bottom: 16px;
 }
 
-/* Technology Tags */
+/* Container das tecnologias */
 .project-technologies {
     display: flex;
     flex-wrap: wrap;
@@ -640,6 +1028,7 @@ section {
     margin-bottom: 16px;
 }
 
+/* Tags de tecnologia */
 .tech-tag {
     padding: 6px 12px;
     border-radius: 20px;
@@ -649,6 +1038,7 @@ section {
     letter-spacing: 0.05em;
 }
 
+/* Cores específicas para cada tecnologia */
 .tech-tag.react {
     background: rgba(97, 218, 251, 0.1);
     color: #61dafb;
@@ -721,21 +1111,25 @@ section {
     border: 1px solid rgba(255, 111, 0, 0.3);
 }
 
+/* Descrição do projeto */
 .project-description {
     color: #d1d5db;
     line-height: 1.6;
     font-size: 0.95rem;
 }
 
+/* Call-to-action dos projetos */
 .projects-cta {
     text-align: center;
 }
 
-/* About Section */
+/* ===== SEÇÃO SOBRE ===== */
+/* Container da seção sobre */
 .about {
     background: #000;
 }
 
+/* Layout em grid do conteúdo sobre */
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -743,12 +1137,14 @@ section {
     align-items: center;
 }
 
+/* Descrição da empresa */
 .about-description {
     color: white;
     margin-bottom: 24px;
     line-height: 1.6;
 }
 
+/* Grid das características */
 .about-features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -757,6 +1153,7 @@ section {
     justify-content: center;
 }
 
+/* Item individual de característica */
 .feature {
     display: flex;
     align-items: center;
@@ -769,22 +1166,26 @@ section {
     flex-shrink: 0;
 }
 
+/* Container das estatísticas */
 .about-stats {
     background: #111827;
     border-radius: 16px;
     padding: 40px;
 }
 
+/* Grid das estatísticas */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
+/* Item individual de estatística */
 .stat {
     text-align: center;
 }
 
+/* Número da estatística */
 .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
@@ -792,22 +1193,34 @@ section {
     margin-bottom: 8px;
 }
 
+/* Label da estatística */
 .stat-label {
     color: #d1d5db;
     font-size: 0.875rem;
 }
 
-/* Contact Section */
+/* Texto centralizado da seção sobre */
+.about-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== SEÇÃO DE CONTATO ===== */
+/* Container da seção de contato */
 .contact {
     background: #000;
 }
 
+/* Layout em grid do conteúdo de contato */
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
 }
 
+/* Formulário de contato */
 .contact-form {
     background: #111827;
     padding: 40px;
@@ -817,16 +1230,19 @@ section {
     min-height: 500px;
 }
 
+/* Linha do formulário (dois campos lado a lado) */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
+/* Grupo de campo do formulário */
 .form-group {
     margin-bottom: 24px;
 }
 
+/* Labels do formulário */
 .form-group label {
     display: block;
     margin-bottom: 8px;
@@ -834,6 +1250,7 @@ section {
     color: #f3f4f6;
 }
 
+/* Inputs e textarea */
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -853,11 +1270,13 @@ section {
     box-shadow: 0 0 0 3px rgba(181, 143, 70, 0.1);
 }
 
+/* Botão de largura total */
 .btn-full {
     width: 100%;
 }
 
-/* Success Animation Styles */
+/* ===== ANIMAÇÃO DE SUCESSO ===== */
+/* Container da animação de sucesso */
 .success-animation {
     position: absolute;
     top: 0;
@@ -880,11 +1299,13 @@ section {
     transform: scale(1);
 }
 
+/* Conteúdo da animação de sucesso */
 .success-content {
     text-align: center;
     width: 100%;
 }
 
+/* Container do logo da empresa */
 .company-logo-container {
     position: relative;
     display: flex;
@@ -893,6 +1314,7 @@ section {
     margin-bottom: 24px;
 }
 
+/* Fundo do logo */
 .logo-background {
     width: 100px;
     height: 100px;
@@ -916,6 +1338,7 @@ section {
     animation: rotate 3s linear infinite;
 }
 
+/* Animações do logo */
 @keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -932,6 +1355,7 @@ section {
     }
 }
 
+/* Ícone do logo */
 .logo-icon {
     color: white;
     z-index: 2;
@@ -949,6 +1373,7 @@ section {
     }
 }
 
+/* Check de sucesso */
 .success-check {
     position: absolute;
     bottom: -8px;
@@ -995,6 +1420,7 @@ section {
     }
 }
 
+/* Texto de sucesso */
 .success-text {
     animation: textFadeIn 0.8s ease-out 1s both;
     margin-bottom: 24px;
@@ -1028,6 +1454,7 @@ section {
     }
 }
 
+/* Ações de sucesso */
 .success-actions {
     display: flex;
     flex-direction: column;
@@ -1047,6 +1474,7 @@ section {
     }
 }
 
+/* Botões de ação */
 .btn-action {
     padding: 12px 24px;
     border-radius: 8px;
@@ -1102,6 +1530,8 @@ section {
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
 }
 
+/* ===== INFORMAÇÕES DE CONTATO ===== */
+/* Container das informações de contato */
 .contact-info {
     background: #1f2937;
     padding: 40px;
@@ -1109,6 +1539,7 @@ section {
     color: #f3f4f6;
 }
 
+/* Título das informações de contato */
 .contact-info-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -1116,6 +1547,7 @@ section {
     margin-bottom: 32px;
 }
 
+/* Item individual de contato */
 .contact-item {
     display: flex;
     align-items: flex-start;
@@ -1123,6 +1555,7 @@ section {
     margin-bottom: 24px;
 }
 
+/* Ícone do item de contato */
 .contact-icon {
     background: #b58f46;
     color: white;
@@ -1135,6 +1568,7 @@ section {
     flex-shrink: 0;
 }
 
+/* Detalhes do contato */
 .contact-details h4 {
     font-weight: 600;
     color: #f3f4f6;
@@ -1145,6 +1579,7 @@ section {
     color: #d1d5db;
 }
 
+/* Seção de redes sociais */
 .social-section {
     margin-top: 32px;
 }
@@ -1155,6 +1590,7 @@ section {
     margin-bottom: 16px;
 }
 
+/* Links das redes sociais */
 .social-links {
     display: flex;
     gap: 12px;
@@ -1179,13 +1615,15 @@ section {
     transform: translateY(-2px);
 }
 
-/* Footer */
+/* ===== RODAPÉ ===== */
+/* Container do rodapé */
 .footer {
     background: #000;
     color: #f3f4f6;
     padding: 30px 0;
 }
 
+/* Conteúdo do rodapé */
 .footer-content {
     display: flex;
     flex-direction: column;
@@ -1193,21 +1631,68 @@ section {
     gap: 16px;
 }
 
+/* Texto do rodapé */
 .footer-text {
     color: #9ca3af;
     font-size: 0.875rem;
 }
 
-.about-text {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ===== DESIGN RESPONSIVO ===== */
+
+/* Responsividade para anúncios */
+@media (max-width: 768px) {
+    .ad-modal-content {
+        width: 95vw;
+        max-height: 85vh;
+    }
+    
+    .ad-content {
+        height: 300px;
+    }
+    
+    .ad-header {
+        padding: 12px 16px;
+    }
+    
+    .ad-footer {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .ad-controls {
+        order: -1;
+    }
+    
+    .ad-timer {
+        order: 1;
+    }
+    
+    .ad-counter {
+        order: 2;
+    }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 480px) {
+    .ad-content {
+        height: 250px;
+    }
+    
+    .ad-label {
+        font-size: 12px;
+    }
+    
+    .ad-close-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .ad-footer {
+        padding: 10px 16px;
+    }
+}
 
-/* Large Desktop (1200px+) */
+/* Desktop Grande (1200px+) */
 @media (min-width: 1200px) {
     .container {
         padding: 0 40px;
@@ -1344,7 +1829,6 @@ section {
 
     .hero {
         padding: 100px 0 60px;
-        min-height: auto;
     }
 
     .hero-content {
@@ -1394,7 +1878,7 @@ section {
     .star-5 { width: 42px; height: 42px; }
     .star-6 { width: 25px; height: 25px; }
 
-    /* Ajustar órbitas das estrelas */
+    /* Ajustar órbitas das estrelas para tablet */
     @keyframes orbitCircle {
         0% { transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg); }
         100% { transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg); }
@@ -1794,10 +2278,9 @@ section {
     }
 }
 
-/* Landscape Orientation for Mobile */
+/* Orientação paisagem para mobile */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero {
-        min-height: auto;
         padding: 80px 0 40px;
     }
 
@@ -1826,21 +2309,22 @@ section {
     }
 }
 
-/* High DPI Displays */
+/* Telas de alta resolução */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .hero-visual .hero-icon .icon-container .custom-icon {
         image-rendering: -webkit-optimize-contrast;
     }
 }
 
-/* Print Styles */
+/* Estilos para impressão */
 @media print {
     .navbar,
     .hamburger,
     .hero-visual,
     .success-animation,
     .btn,
-    .social-links {
+    .social-links,
+    .ad-modal {
         display: none !important;
     }
 
